@@ -39,14 +39,18 @@ void enter_arr(int arr[]) {
 	}
 }
  
-void comparison(int arr[], int arr1[],int *n) {
+void comparison(int arr[], int arr1[],int* n) {
 	for (int i = 0; i < 4; i++) {
 		if (arr[i] != arr1[i]) {
-			*n++;
 			cout << '*' << " ";
+			*n++;
 		}
 		else if (arr[i] == arr1[i])
 			cout << arr[i] << " ";
+	}
+	if (*n == 0) {
+		cout << "\n\n\  You win!\n\n";
+		exit(0);
 	}
 }
 
@@ -99,8 +103,8 @@ int main()
 		enter_arr(bull);
 		comparison(cow, bull,&n);
 		count++;
-		cout << "Number of attempts: " << count << endl;
-	} while (bull == cow);
+		cout << "\n\nAttempts: " << count << endl;
+	} while (n==0);
 
 }
 
