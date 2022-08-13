@@ -39,10 +39,12 @@ void enter_arr(int arr[]) {
 	}
 }
  
-void comparison(int arr[], int arr1[]) {
+void comparison(int arr[], int arr1[],int *n) {
 	for (int i = 0; i < 4; i++) {
-		if (arr[i] != arr1[i])
+		if (arr[i] != arr1[i]) {
+			*n++;
 			cout << '*' << " ";
+		}
 		else if (arr[i] == arr1[i])
 			cout << arr[i] << " ";
 	}
@@ -89,11 +91,16 @@ int main()
 	//Task 3___________________________
 	int cow[4];
 	int bull[4];
+	int count=0,n=0;
 	cout << "Task 3 \n\n";
 	create_arr(cow);
 	print_arr(cow);
-	enter_arr(bull);
-	comparison(cow, bull);
+	do {
+		enter_arr(bull);
+		comparison(cow, bull,&n);
+		count++;
+		cout << "Number of attempts: " << count << endl;
+	} while (bull == cow);
 
 }
 
