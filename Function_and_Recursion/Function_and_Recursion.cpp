@@ -1,4 +1,5 @@
 ﻿#include <iostream>
+#include <ctime>
 
 using namespace std;
 
@@ -28,6 +29,7 @@ void print_arr(int arr[]) {
 	for (int i = 0; i < 4; i++) {
 		cout<<arr[i]<<" ";
 	}
+	cout << endl;
 }
 
 void enter_arr(int arr[]) {
@@ -49,13 +51,14 @@ void comparison(int arr[], int arr1[],int* n) {
 			cout << arr[i] << " ";
 	}
 	if (*n == 0) {
-		cout << "\n\n\  You win!\n\n";
+		cout << "\n  You win!\n\n";
 		exit(0);
 	}
 }
 
 int main()
 {
+	srand(time(NULL));
 	//Task 1____________________________
 	int arr[4][4]= {
 		{1,5,8,2},
