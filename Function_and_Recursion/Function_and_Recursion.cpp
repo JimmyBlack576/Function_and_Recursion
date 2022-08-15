@@ -2,59 +2,32 @@
 #include <ctime>
 
 using namespace std;
-
+//Целочисленный массив задание 1
 void printarr(int arr[4][4]);
-
+//double массив задание 1
 void printarr(double arr[4][4]);
-
+//Char массив задание 1
 void printarr(char arr[4][4]);
-
+//задание 1
 void MinAndMax(int arr[4][4]);
-
+//Задание 1
 void MinAndMax(double arr[4][4]);
-
+//Задание 1 сортировка
 void sortString(int arr[4][4]);
-
+//Задание 1 сортировка
 void sortString(double arr[4][4]);
-
+//Задание 2 
 int NOD(int a, int b);
-
-void create_arr(int arr[]) {
-	for (int i = 0; i < 4; i++) {
-		arr[i] = 1 + rand() % 9;
-	}
-}
-
-void print_arr(int arr[]) {
-	for (int i = 0; i < 4; i++) {
-		cout<<arr[i]<<" ";
-	}
-	cout << endl;
-}
-
-void enter_arr(int arr[]) {
-	int n;
-	cout << "Enter single digit numbers one by one: \n";
-	for (int i = 0; i < 4; i++) {
-		cin >> n;
-		arr[i] = n;
-	}
-}
+//Создание массива для Задания 3
+void create_arr(int arr[]);
+//Вывод массива для задание 3 (для проверки работоспособности программы)
+void print_arr(int arr[]);
+//массив для хранения данных введёных пользователем
+void enter_arr(int arr[]);
+//Функция сравнения исходных данных с пользовательскими 
+void comparison(int arr[], int arr1[], int* n);
  
-void comparison(int arr[], int arr1[],int* n) {
-	for (int i = 0; i < 4; i++) {
-		if (arr[i] != arr1[i]) {
-			cout << '*' << " ";
-			*n++;
-		}
-		else if (arr[i] == arr1[i])
-			cout << arr[i] << " ";
-	}
-	if (*n == 0) {
-		cout << "\n  You win!\n\n";
-		exit(0);
-	}
-}
+
 
 int main()
 {
@@ -101,7 +74,7 @@ int main()
 	int count=0,n=0;
 	cout << "Task 3 \n\n";
 	create_arr(cow);
-	print_arr(cow);
+	print_arr(cow);//Можно закомментировать что бы загаданное число не отображалось
 	do {
 		enter_arr(bull);
 		comparison(cow, bull,&n);
@@ -215,4 +188,41 @@ int NOD(int a, int b) {
 		return NOD(b, a % b);
 	else 
 		return NOD(a, b % a);
+}
+
+void create_arr(int arr[]) {
+	for (int i = 0; i < 4; i++) {
+		arr[i] = 1 + rand() % 9;
+	}
+}
+
+void print_arr(int arr[]) {
+	for (int i = 0; i < 4; i++) {
+		cout << arr[i] << " ";
+	}
+	cout << endl;
+}
+
+void enter_arr(int arr[]) {
+	int n;
+	cout << "Enter single digit numbers one by one: \n";
+	for (int i = 0; i < 4; i++) {
+		cin >> n;
+		arr[i] = n;
+	}
+}
+
+void comparison(int arr[], int arr1[], int* n) {
+	for (int i = 0; i < 4; i++) {
+		if (arr[i] != arr1[i]) {
+			cout << '*' << " ";
+			*n++;
+		}
+		else if (arr[i] == arr1[i])
+			cout << arr[i] << " ";
+	}
+	if (*n == 0) {
+		cout << "\n  You win!\n\n";
+		exit(0);
+	}
 }
